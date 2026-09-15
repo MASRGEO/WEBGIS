@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Mapa interativo das escolas públicas de Belo Horizonte.">
+  <title>Escolas Públicas de Belo Horizonte</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23095b4a'/%3E%3Cpath d='M13 27 32 16l19 11-19 11z' fill='%23fff'/%3E%3Cpath d='M20 34v10c8 5 16 5 24 0V34l-12 7z' fill='%23ffcf4a'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/leaflet.css">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="title-wrap">
+      <div class="brand-mark" aria-hidden="true">BH</div>
+      <div><p class="eyebrow">REDE PÚBLICA DE ENSINO</p><h1>Escolas públicas de Belo Horizonte</h1></div>
+    </div>
+    <button id="aboutButton" class="about-button" type="button" aria-expanded="false">Sobre os dados</button>
+  </header>
+  <main class="workspace">
+    <aside class="sidebar" aria-label="Filtros do mapa">
+      <section class="summary"><p class="section-label">ESCOLAS VISÍVEIS</p><div class="count-row"><strong id="visibleCount">—</strong><span>de <span id="totalCount">—</span> mapeadas</span></div></section>
+      <section class="filter-section"><label for="searchInput">Buscar escola, endereço ou INEP</label><div class="search-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.1-5.4a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z"/></svg><input id="searchInput" type="search" placeholder="Digite o nome da escola"></div></section>
+      <section class="filter-section"><div class="filter-heading"><h2>Dependência administrativa</h2><button id="clearButton" type="button">Limpar filtros</button></div>
+        <label class="check-row"><input type="checkbox" name="type" value="Municipal" checked><span class="dot municipal"></span><span>Municipal</span><b id="countMunicipal">0</b></label>
+        <label class="check-row"><input type="checkbox" name="type" value="Estadual" checked><span class="dot estadual"></span><span>Estadual</span><b id="countEstadual">0</b></label>
+        <label class="check-row"><input type="checkbox" name="type" value="Federal" checked><span class="dot federal"></span><span>Federal</span><b id="countFederal">0</b></label>
+      </section>
+      <section class="filter-section"><label for="levelSelect">Etapa principal</label><select id="levelSelect"><option value="">Todas as etapas</option></select></section>
+      <section class="filter-section"><label for="enrollmentSelect">Faixa de matrículas</label><select id="enrollmentSelect"><option value="">Todas as faixas</option></select></section>
+      <section class="filter-section compact"><label class="toggle-row"><input id="boundaryToggle" type="checkbox" checked><span>Exibir limite municipal</span></label></section>
+      <section class="legend"><h2>Legenda</h2><p><span class="dot municipal"></span> Escola municipal</p><p><span class="dot estadual"></span> Escola estadual</p><p><span class="dot federal"></span> Escola federal</p><p><span class="line-symbol"></span> Limite de Belo Horizonte</p></section>
+    </aside>
+    <section class="map-shell" aria-label="Mapa das escolas públicas"><div id="map"></div><div id="loading" class="loading"><span></span>Carregando mapa…</div><div class="map-note">Elaboração: Jéssica Barbosa Maia • Dados educacionais e limite municipal</div></section>
+  </main>
+  <aside id="aboutPanel" class="about-panel" hidden><button id="closeAbout" type="button" aria-label="Fechar">×</button><p class="eyebrow">SOBRE ESTE MAPA</p><h2>Escolas públicas de Belo Horizonte</h2><p>Mapa interativo com escolas municipais, estaduais e federais, categorizadas pela dependência administrativa.</p><dl><div><dt>Escolas públicas cadastradas</dt><dd>558</dd></div><div><dt>Escolas com coordenadas</dt><dd>556</dd></div><div><dt>Sistema de referência dos dados web</dt><dd>WGS 84 — EPSG:4326</dd></div></dl><p class="caveat">As matrículas são apresentadas por faixa, conforme o campo de porte escolar da tabela fornecida.</p><p><strong>Elaboração cartográfica:</strong><br>Jéssica Barbosa Maia<br>Geógrafa • CREA-MG 443322/D</p></aside>
+  <div id="scrim" class="scrim" hidden></div>
+  <script src="assets/leaflet.js"></script><script src="data/escolas.js"></script><script src="data/limite_bh.js"></script><script src="assets/app.js"></script>
+</body>
+</html>

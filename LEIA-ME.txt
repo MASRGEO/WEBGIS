@@ -1,0 +1,37 @@
+MAPA DAS ESCOLAS PÚBLICAS DE BELO HORIZONTE
+
+FONTE DAS CAMADAS
+
+Tabela dados escolas INEP: https://anonymousdata.inep.gov.br/analytics/saw.dll?Dashboard&PortalPath=%2Fshared%2FCenso%20da%20Educa%C3%A7%C3%A3o%20B%C3%A1sica%2F_portal%2FCat%C3%A1logo%20de%20Escolas&Page=Lista%20das%20Escolas&P1=dashboard&Action=Navigate&ViewState=ojcnh1ac5lb7runjkaoem7m3au&P16=NavRuleDefault&NavFromViewID=d%3Adashboard~p%3Asf156n9k0qs70741
+
+Camada município:
+https://bhmap.pbh.gov.br/v2/mapa/idebhgeo#zoom=2&lat=7800754.55216&lon=623507.23084&baselayer=base
+
+ARQUIVOS PRINCIPAIS
+- index.html: estrutura e textos criada pelo QGIS melhorado pelo Claude;
+- assets/site.css: cores, dimensões e aparência criada pelo QGIS melhorado pelo Claude;
+- assets/app.js: filtros, pop-ups e funcionamento do mapa criada pelo QGIS;
+- data/escolas.js: dados das escolas exportados pelo QGIS;
+- data/limite_bh.js: limite municipal exportado pelo QGIS.
+
+Elaboração cartográfica: Jéssica Barbosa Maia — Geógrafa 
+
+# README – Standalone qgis2web Export
+
+This export is completely "self-contained".
+
+To view the map, simply open "index.html" by double-clicking it.
+No web server or additional software is required.
+
+The map works because all the required JavaScript libraries are included
+in the export. The application loads the GeoJSON layer data and their styles
+directly from the local files.
+
+## Publishing on a Website
+
+If you upload the entire folder to a web server, the map will work 
+immediately by opening the "index.html" file.
+
+Example:
+
+"https://www.example.com/my-map/index.html"
